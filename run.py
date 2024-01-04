@@ -67,7 +67,7 @@ def predict(img):
     ort_inputs = {model.get_inputs()[0].name: meta["norm"]}
     ort_outs = model.run(["output"], ort_inputs)
     # PostProcess result
-    img_out = postprocess(meta["resized"], ort_outs)
+    img_out = postprocess(ort_outs, meta)
     return img_out
 
 
